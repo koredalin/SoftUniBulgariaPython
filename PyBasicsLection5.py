@@ -136,10 +136,8 @@ if (inputCurrency == 'GBP' and outputCurrency == 'EUR'):
 # 13. Добавяне на 1000 дни към датата на раждане
 import time
 dob = input('Въведете дата на раждане: ')
-dobTs = time.mktime(time.strptime(dob, "%d-%m-%Y"))
-resultTs = dobTs + 1000 * 24 * 60 * 60
-# '23/03/1998'
 # '23-03-1998'
-resultDate = time.strftime("%d-%m-%Y", time.localtime(int(resultTs)))
+resultTs = int(time.mktime(time.strptime(dob, "%d-%m-%Y"))) + 86400000
+resultDate = time.strftime("%d-%m-%Y", time.localtime(resultTs))
 print('Result timestamp: ', resultTs)
 print('Result date: ', resultDate)
